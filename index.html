@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodies Spot</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Public+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#1d2b3a",
+            paper: "#eef1f2",
+            yolk: "#f2c230",
+            steel: "#5d6b78",
+          },
+          fontFamily: {
+            head: ["Bricolage Grotesque", "sans-serif"],
+            body: ["Public Sans", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-paper text-ink font-body">
+
+  <header class="bg-ink text-paper">
+    <nav class="max-w-5xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="#" class="font-head font-extrabold text-xl">Foodies Spot</a>
+
+      <button id="menuBtn" class="md:hidden border border-paper/40 rounded px-3 py-1 text-sm" aria-label="Open menu">
+        Menu
+      </button>
+
+      <ul id="menu" class="hidden md:flex gap-8 text-sm absolute md:static left-0 right-0 top-14 bg-ink md:bg-transparent px-5 py-4 md:p-0 flex-col md:flex-row">
+        <li><a href="#prices" class="hover:text-yolk">Prices</a></li>
+        <li><a href="#about" class="hover:text-yolk">About</a></li>
+        <li><a href="#contact" class="hover:text-yolk">Home Delivery</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  
+  <section class="max-w-5xl mx-auto px-5 py-14 md:py-24 grid md:grid-cols-5 gap-10 items-center">
+    <div class="md:col-span-3">
+      <h1 class="font-head font-extrabold text-4xl sm:text-5xl md:text-6xl leading-tight">
+        Your Food, At your home, 5min.
+      </h1>
+      <p class="mt-5 text-steel max-w-md">
+        we deliver your food item to your home at 5 min only, order your food now!
+      </p>
+      <a href="#contact" class="inline-block mt-7 bg-yolk text-ink font-medium px-6 py-3 rounded hover:bg-ink hover:text-yolk transition">
+        ORDER YOUR FOOD
+      </a>
+    </div>
+
+    <div class="md:col-span-2 bg-yolk rounded-lg p-6">
+      <h2 class="font-head font-semibold text-xl mb-3">Opening hours</h2>
+      <ul class="space-y-1 text-sm">
+        <li class="flex justify-between"><span>Mon – Fri</span><span>9 am – 10 pm</span></li>
+        <li class="flex justify-between"><span>Saturday</span><span>9 am – 12 pm</span></li>
+        <li class="flex justify-between"><span>Sunday</span><span>Closed</span></li>
+      </ul>
+    </div>
+  </section>
+
+  
+  <section id="prices" class="bg-white py-14">
+    <div class="max-w-3xl mx-auto px-5">
+      <h2 class="font-head font-semibold text-3xl">What it costs</h2>
+      <p class="mt-2 text-steel">First Delivery Is FREE. Apply the code #FIRSTORDER.</p>
+
+      <ul class="mt-8 divide-y divide-ink/15 border-y border-ink/15">
+        <li class="flex justify-between py-4"><span>1km</span><span class="font-medium">FREE</span></li>
+        <li class="flex justify-between py-4"><span>2km</span><span class="font-medium">₹50</span></li>
+        <li class="flex justify-between py-4"><span>3km</span><span class="font-medium">₹70</span></li>
+        <li class="flex justify-between py-4"><span>4km</span><span class="font-medium">₹100</span></li>
+        <li class="flex justify-between py-4"><span>5km</span><span class="font-medium">₹120</span></li>
+      </ul>
+    </div>
+  </section>
+
+  
+  <section id="about" class="max-w-5xl mx-auto px-5 py-14 grid md:grid-cols-2 gap-8">
+    <h2 class="font-head font-semibold text-3xl">small startup, run by two brothers.</h2>
+    <div class="space-y-4 text-steel">
+      <p>
+        We started in a shop at 2026. The shop 
+        got too small, so we moved to a proper shop, but we still fix things the
+        same way: take order, hygin, then deliver it.
+      </p>
+   
+    </div>
+  </section>
+
+  
+  <section id="contact" class="bg-ink text-paper py-14">
+    <div class="max-w-xl mx-auto px-5">
+      <h2 class="font-head font-semibold text-3xl">Book a order</h2>
+      <p class="mt-2 text-paper/70">Tell us where is location and the food.</p>
+
+      <form class="mt-8 space-y-4" onsubmit="event.preventDefault(); alert('Thanks! We will call you to confirm.');">
+        <div>
+          <label for="name" class="block text-sm mb-1">Your name</label>
+          <input id="name" type="text" required class="w-full rounded px-3 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-yolk" />
+        </div>
+        <div>
+          <label for="phone" class="block text-sm mb-1">phone number</label>
+          <input id="phone" type="tel" required class="w-full rounded px-3 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-yolk" />
+        </div>
+        <div>
+          <label for="issue" class="block text-sm mb-1">food & location</label>
+          <textarea id="issue" rows="3" class="w-full rounded px-3 py-2 text-ink focus:outline-none focus:ring-2 focus:ring-yolk"></textarea>
+        </div>
+        <button type="submit" class="bg-yolk text-ink font-medium px-6 py-3 rounded hover:bg-paper transition w-full sm:w-auto">
+          Send request
+        </button>
+      </form>
+    </div>
+  </section>
+
+
+  <footer class="bg-ink text-paper/60 text-sm border-t border-paper/10">
+    <div class="max-w-5xl mx-auto px-5 py-6 flex flex-col sm:flex-row justify-between gap-2">
+      <p>Foodies Spot</p>
+      <p>&copy; 2026</p>
+    </div>
+  </footer>
+
+  <script>
+   
+    const btn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menu");
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
+    });
+  </script>
+</body>
+</html>
